@@ -7,7 +7,7 @@ const firebaseConfig = {
   authDomain: "polyuganda.firebaseapp.com",
   projectId: "polyuganda",
   storageBucket: "polyuganda.appspot.com",
-  messagingSenderId: "381760321623",
+  messagingSenderId: "381760321623", 
   appId: "1:381760321623:web:ef78b8fba573e245be0b12",
   measurementId: "G-DY7ZLRGGXM"
 };
