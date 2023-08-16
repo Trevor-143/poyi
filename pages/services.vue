@@ -51,7 +51,7 @@ const serviceData = ref([])
 const storageKey = 'serviceData'
 const maxCacheAge = 24 * 60 * 60 * 1000 // 24 hours in milliseconds
 
-onBeforeMount(async () => {
+onMounted(async () => {
     const cachedData = localStorage.getItem(storageKey)
     if (cachedData) {
         const { timestamp, data } = JSON.parse(cachedData)
