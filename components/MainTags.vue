@@ -13,7 +13,7 @@
 const miniTags = [
     {
         id: 1,
-        name:"State of the art equipment and tools."
+        name:"State of the art equipments and tools."
     },
     {
         id: 2,
@@ -21,7 +21,7 @@ const miniTags = [
     },
     {
         id: 3,
-        name:"Get into very easily with mobile or email."
+        name:"Get in touch easily with mobile or email."
     },
     {
         id: 4,
@@ -29,7 +29,7 @@ const miniTags = [
     },
     {
         id: 5,
-        name:"Alarge collection of services available."
+        name:"A collection of services available."
     },
     {
         id: 6,
