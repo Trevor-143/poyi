@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     '/about': { prerender: true },
     '/terms': { prerender: true },
     '/contact': { prerender: true },
-    '/services': { swr: 3600 },
+    '/services': { isr: true },
     '/api/**': { cors: true },
   },
   app: {
