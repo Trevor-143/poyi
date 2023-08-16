@@ -38,12 +38,30 @@
 
 
 <script setup>
+import { collection, query, onSnapshot } from "firebase/firestore";
+import { Store } from "../firebaseConfig/firebase"
+
+const servicesData = collection(Store, "services")
+const servicesQuery = query(servicesData)
 
 const serviceData = ref([])
 
-const { data } = await useFetch('/api/getServices')
-console.log(data)
-serviceData.value = data.value
+onMounted(() => {
+    onSnapshot(servicesQuery, (serviceSnap) => {
+        const serviceTemp = []
+        serviceSnap.forEach(doc => {
+            const sService = {
+                id: doc.id,
+                name: doc.data().name,
+                image: doc.data().image,
+                content: doc.data().content,
+            }
+            serviceTemp.push(sService)
+        });
+        // console.log(serviceTemp)
+        serviceData.value = serviceTemp
+    })
+})
 
 </script>
 
