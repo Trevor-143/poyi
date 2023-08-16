@@ -23,5 +23,6 @@ export default defineEventHandler(async () => {
         };
     })
 
+    // console.log(serviceData)
     return serviceData;
 });

@@ -43,7 +43,7 @@ const serviceData = ref([])
 
 onMounted(async() => {
     const { data } = await useFetch('/api/getServices')
-    console.log(data.value)
+    console.log(data)
     serviceData.value = data.value
 })
 
