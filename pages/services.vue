@@ -39,26 +39,12 @@
 
 <script setup>
 
-// const serviceData = ref([])
-
-// onMounted(async() => {
-//     const { data } = await useFetch('/api/getServices')
-//     console.log(data.value)
-//     serviceData.value = data.value
-// })
-
 const serviceData = ref([])
 
-onBeforeMount(async () => {
-    // Check if service data is already cached in local storage
-    const cachedData = localStorage.getItem('serviceData')
-    if (cachedData) {
-        serviceData.value = JSON.parse(cachedData)
-    } else {
-        const { data } = await useFetch('/api/getServices')
-        serviceData.value = data.value
-        localStorage.setItem('serviceData', JSON.stringify(data.value))
-    }
+onMounted(async() => {
+    const { data } = await useFetch('/api/getServices')
+    console.log(data.value)
+    serviceData.value = data.value
 })
 
 </script>
