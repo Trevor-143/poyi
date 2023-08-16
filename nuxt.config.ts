@@ -6,6 +6,13 @@ export default defineNuxtConfig({
     '@nuxt/image',
     'nuxt-icon'
   ],
+  routeRules: {
+    '/': { prerender: true },
+    '/about': { prerender: true },
+    '/terms': { prerender: true },
+    '/contact': { prerender: true },
+    '/services': { swr: true }
+  },
   app: {
     head: {
       title: 'Poyi Cleaners Uganda',
