@@ -48,33 +48,18 @@
 // })
 
 const serviceData = ref([])
-const storageKey = 'serviceData'
-const maxCacheAge = 24 * 60 * 60 * 1000 // 24 hours in milliseconds
 
 onMounted(async () => {
-    const cachedData = localStorage.getItem(storageKey)
+    // Check if service data is already cached in local storage
+    const cachedData = localStorage.getItem('serviceData')
     if (cachedData) {
-        const { timestamp, data } = JSON.parse(cachedData)
-        if (Date.now() - timestamp <= maxCacheAge) {
-            serviceData.value = data
-        } else {
-            localStorage.removeItem(storageKey)
-            fetchDataAndCache()
-        }
+        serviceData.value = JSON.parse(cachedData)
     } else {
-        fetchDataAndCache()
+        const { data } = await useFetch('/api/getServices')
+        serviceData.value = data.value
+        localStorage.setItem('serviceData', JSON.stringify(data.value))
     }
 })
-
-async function fetchDataAndCache() {
-    const { data } = await useFetch('/api/getServices')
-    serviceData.value = data.value
-    const cacheObject = {
-        timestamp: Date.now(),
-        data: data.value
-    }
-    localStorage.setItem(storageKey, JSON.stringify(cacheObject))
-}
 
 </script>
 
