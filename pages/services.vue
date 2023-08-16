@@ -49,7 +49,7 @@
 
 const serviceData = ref([])
 
-onMounted(async () => {
+onBeforeMount(async () => {
     // Check if service data is already cached in local storage
     const cachedData = localStorage.getItem('serviceData')
     if (cachedData) {
